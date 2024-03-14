@@ -1,0 +1,35 @@
+14/2/24
+analysed fun with numbers application
+set up repository
+created new python file
+made a basic home screen where it shows a welcome title and the options
+
+16/2/24
+added codespace and pylint
+cleared all the errors
+declared choice variable
+
+
+21/2
+defined all of the subroutines
+wrote all the choices
+added the exit flag
+added .upper
+fixed alot of errors
+imported os and clear screen func
+
+28/2
+added the print table function
+finshed the function that does the number checker
+added a pylintrc max charachter length
+1/3
+finshed the function that does the plotter
+will work on the stats routine
+added bunch of comments that will explain to other coders
+8/3
+will add more error handling to the stats routine and how to not get divide by zero
+added to stats routine and how the stats will work
+new function to save user stats
+13/3
+told to improve interface and figure out how to implement more features
+guessing game
