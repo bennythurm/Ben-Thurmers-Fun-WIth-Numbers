@@ -1,6 +1,8 @@
 """Fun With Numbers By Ben Thurmer"""
 #Ben Thurmer
 import os
+import random
+import math
 
 NUMBER_COUNT = 0
 NUMBER_TOTAL = 0
@@ -18,6 +20,7 @@ def main():
         print(" (A) Check number features")
         print(" (B) Plot numbers")
         print(" (C) Check overall stats")
+        print(" (D) Number Game")
         print("\n (X)  Save and exit")
         choice = input("\n Choice:") .upper()
 
@@ -27,6 +30,8 @@ def main():
             plotter()
         elif choice == "C":
             stats()
+        elif choice == "D":
+            game()
         elif choice == "X":
             saves()
             exit_flag = True
@@ -133,6 +138,45 @@ def stats():
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
 
+def game():
+    """number guessing game"""
+    clear()
+    #takes user input for numbers they want as lowest to highest
+    lower = int(input("Enter Lowest Number: "))
+    upper = int(input("Enter Highest Number: "))
+
+    #generates the random number
+    x = random.randint(lower, upper)
+    print("\n\t Youve only got ",
+        round(math.log(upper - lower + 1, 2)),
+        "chances to guess the number!\n")
+
+    #shows the amount of guesses you get
+    count = 0
+
+    #adds the amount of guesses you get
+    while count < math.log (upper - lower + 1 , 2):
+        count += 1
+
+    guess = int(input("Guess A Number: "))
+
+    if x == guess:
+        print("Congratualtions You Have Found The Number In ",
+            count, = " Try")
+        #once user guessed loop will break
+        break
+        #once number has been guessed user will go back to main program
+    elif x > guess:
+        print("You Guessed To Small")
+    elif x < guess:
+        print("You Guessed To Big")
+
+    # If Guessing is more than required guesses,
+    # shows this output.
+    if count >= math.log(upper - lower + 1, 2):
+        print("\n The number is %d" % x)
+        print("\tBetter Luck Next time!")
+
 def clear():
     """clears the screen"""
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -158,7 +202,5 @@ def load():
         SMALLEST_NUMBER = int(file.readline())
         LARGEST_NUMBER = int(file.readline())
         PLOT_COUNT = int(file.readline())
-
-
 
 main()
