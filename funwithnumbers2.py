@@ -2,8 +2,6 @@
 #Ben Thurmer
 import os
 import random
-import math
-
 NUMBER_COUNT = 0
 NUMBER_TOTAL = 0
 SMALLEST_NUMBER = 0
@@ -20,7 +18,7 @@ def main():
         print(" (A) Check number features")
         print(" (B) Plot numbers")
         print(" (C) Check overall stats")
-        print(" (D) Number Game")
+        print(" (D) Guess a number game")
         print("\n (X)  Save and exit")
         choice = input("\n Choice:") .upper()
 
@@ -30,8 +28,8 @@ def main():
             plotter()
         elif choice == "C":
             stats()
-        elif choice == "D":
-            game()
+        elif choice =="D":
+            number_guessing_game()
         elif choice == "X":
             saves()
             exit_flag = True
@@ -137,45 +135,29 @@ def stats():
     print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
-
-def game():
-    """number guessing game"""
+    
+def number_guessing_game():
+    """A simple number guessing game."""
+    # Generate a random number between 1 and 100
     clear()
-    #takes user input for numbers they want as lowest to highest
-    lower = int(input("Enter Lowest Number: "))
-    upper = int(input("Enter Highest Number: "))
+    secret_number = random.randint(1, 100)
+    attempts = 0
+    #landing screen
+    print("Welcome to the Number Guessing Game!")
+    print("I have chosen a number between 1 and 100. Can you guess it?")
 
-    #generates the random number
-    x = random.randint(lower, upper)
-    print("\n\t Youve only got ",
-        round(math.log(upper - lower + 1, 2)),
-        "chances to guess the number!\n")
+    while True:
+        guess = int(input("Enter your guess (between 1 and 100): "))
+        attempts += 1
 
-    #shows the amount of guesses you get
-    count = 0
-
-    #adds the amount of guesses you get
-    while count < math.log (upper - lower + 1 , 2):
-        count += 1
-
-    guess = int(input("Guess A Number: "))
-
-    if x == guess:
-        print("Congratualtions You Have Found The Number In ",
-            count, = " Try")
-        #once user guessed loop will break
-        break
-        #once number has been guessed user will go back to main program
-    elif x > guess:
-        print("You Guessed To Small")
-    elif x < guess:
-        print("You Guessed To Big")
-
-    # If Guessing is more than required guesses,
-    # shows this output.
-    if count >= math.log(upper - lower + 1, 2):
-        print("\n The number is %d" % x)
-        print("\tBetter Luck Next time!")
+        if guess < secret_number:
+            print("Too low! Try again.")
+        elif guess > secret_number:
+            print("Too high! Try again.")
+        else:
+            print(f"Congratulations! You guessed the number {secret_number} in {attempts} attempts!")
+            input("Press Enter To Continue")
+            break
 
 def clear():
     """clears the screen"""
@@ -202,5 +184,7 @@ def load():
         SMALLEST_NUMBER = int(file.readline())
         LARGEST_NUMBER = int(file.readline())
         PLOT_COUNT = int(file.readline())
+
+
 
 main()

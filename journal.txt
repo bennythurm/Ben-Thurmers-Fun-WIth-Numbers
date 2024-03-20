@@ -33,3 +33,6 @@ new function to save user stats
 13/3
 told to improve interface and figure out how to implement more features
 guessing game
+21/3
+finshed the game i think it works
+but now the checker is broken no clue why
