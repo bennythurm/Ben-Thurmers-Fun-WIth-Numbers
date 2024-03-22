@@ -147,7 +147,6 @@ def number_guessing_game():
     """A simple number guessing game."""
     # Generate a random number between 1 and 100
     clear()
-    global GAME_COUNT
     secret_number = random.randint(1, 100)
     attempts = 0
     #landing screen
@@ -180,7 +179,6 @@ def saves():
         file.write(f"{SMALLEST_NUMBER}\n")
         file.write(f"{LARGEST_NUMBER}\n")
         file.write(f"{PLOT_COUNT}\n")
-        file.write(f"{GAME_COUNT}\n")
 
 def load():
     """loads the users numbers"""
@@ -194,5 +192,4 @@ def load():
         SMALLEST_NUMBER = int(file.readline())
         LARGEST_NUMBER = int(file.readline())
         PLOT_COUNT = int(file.readline())
-        GAME_COUNT = int(file.readline())
 main()
