@@ -36,3 +36,7 @@ guessing game
 21/3
 finshed the game i think it works
 but now the checker is broken no clue why
+22/3
+fixed the game
+fixed the checker
+made so that div by 0 err is not going to happen

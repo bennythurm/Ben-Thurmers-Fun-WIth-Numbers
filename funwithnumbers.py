@@ -7,6 +7,7 @@ NUMBER_TOTAL = 0
 SMALLEST_NUMBER = 0
 LARGEST_NUMBER = 0
 PLOT_COUNT = 0
+GAME_COUNT = 0
 
 def main():
     """what the user first sees on the landing page""" 
@@ -128,18 +129,25 @@ def print_table(table):
 def stats():
     """shows your stats used overall on the app"""
     clear()
+    load()
     print("Here is your stats used overall on the app:")
     print(f"\n Numbers Entered:{NUMBER_COUNT}")
     print(f" Total of numbers: {NUMBER_TOTAL}")
-    print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
+    if NUMBER_TOTAL != 0:
+        print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
+    else:
+        print(" Average of numbers: 0")
     print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
-    
+    print(f" Amount Of Times Game Played: {GAME_COUNT}")
+    input("\npress Enter to continue...")
+
 def number_guessing_game():
     """A simple number guessing game."""
     # Generate a random number between 1 and 100
     clear()
+    global GAME_COUNT
     secret_number = random.randint(1, 100)
     attempts = 0
     #landing screen
@@ -156,6 +164,7 @@ def number_guessing_game():
             print("Too high! Try again.")
         else:
             print(f"Congratulations! You guessed the number {secret_number} in {attempts} attempts!")
+            GAME_COUNT += 1
             input("Press Enter To Continue")
             break
 
@@ -171,6 +180,7 @@ def saves():
         file.write(f"{SMALLEST_NUMBER}\n")
         file.write(f"{LARGEST_NUMBER}\n")
         file.write(f"{PLOT_COUNT}\n")
+        file.write(f"{GAME_COUNT}\n")
 
 def load():
     """loads the users numbers"""
@@ -178,13 +188,11 @@ def load():
         return
 
     with open("stats.txt", "r", encoding="utf-8") as file:
-        global NUMBER_COUNT , NUMBER_TOTAL , SMALLEST_NUMBER , LARGEST_NUMBER , PLOT_COUNT
+        global NUMBER_COUNT , NUMBER_TOTAL , SMALLEST_NUMBER , LARGEST_NUMBER , PLOT_COUNT , GAME_COUNT
         NUMBER_COUNT = int(file.readline())
         NUMBER_TOTAL = int(file.readline())
         SMALLEST_NUMBER = int(file.readline())
         LARGEST_NUMBER = int(file.readline())
         PLOT_COUNT = int(file.readline())
-
-
-
+        GAME_COUNT = int(file.readline())
 main()
