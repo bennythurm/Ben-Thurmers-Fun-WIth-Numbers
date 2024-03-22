@@ -7,7 +7,6 @@ NUMBER_TOTAL = 0
 SMALLEST_NUMBER = 0
 LARGEST_NUMBER = 0
 PLOT_COUNT = 0
-GAME_COUNT = 0
 
 def main():
     """what the user first sees on the landing page""" 
@@ -136,7 +135,6 @@ def stats():
     print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
-    print(f" Amount Of Times Game Played: {GAME_COUNT}")
     input("\npress Enter to continue...")
 
 def number_guessing_game():
