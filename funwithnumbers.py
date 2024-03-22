@@ -129,14 +129,10 @@ def print_table(table):
 def stats():
     """shows your stats used overall on the app"""
     clear()
-    load()
     print("Here is your stats used overall on the app:")
     print(f"\n Numbers Entered:{NUMBER_COUNT}")
     print(f" Total of numbers: {NUMBER_TOTAL}")
-    if NUMBER_TOTAL != 0:
-        print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
-    else:
-        print(" Average of numbers: 0")
+    print(f" Average of numbers: {NUMBER_TOTAL-NUMBER_COUNT}")
     print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
@@ -163,7 +159,6 @@ def number_guessing_game():
             print("Too high! Try again.")
         else:
             print(f"Congratulations! You guessed the number {secret_number} in {attempts} attempts!")
-            GAME_COUNT += 1
             input("Press Enter To Continue")
             break
 
@@ -186,7 +181,7 @@ def load():
         return
 
     with open("stats.txt", "r", encoding="utf-8") as file:
-        global NUMBER_COUNT , NUMBER_TOTAL , SMALLEST_NUMBER , LARGEST_NUMBER , PLOT_COUNT , GAME_COUNT
+        global NUMBER_COUNT , NUMBER_TOTAL , SMALLEST_NUMBER , LARGEST_NUMBER , PLOT_COUNT
         NUMBER_COUNT = int(file.readline())
         NUMBER_TOTAL = int(file.readline())
         SMALLEST_NUMBER = int(file.readline())
