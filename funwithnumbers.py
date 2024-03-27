@@ -10,6 +10,7 @@ PLOT_COUNT = 0
 
 def main():
     """what the user first sees on the landing page""" 
+    load()
     exit_flag = False
     while not exit_flag:
         clear()
@@ -131,7 +132,7 @@ def stats():
     print("Here is your stats used overall on the app:")
     print(f"\n Numbers Entered:{NUMBER_COUNT}")
     print(f" Total of numbers: {NUMBER_TOTAL}")
-    print(f" Average of numbers: {NUMBER_TOTAL-NUMBER_COUNT}")
+    print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
     print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
