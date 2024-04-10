@@ -132,8 +132,10 @@ def stats():
     print("Here is your stats used overall on the app:")
     print(f"\n Numbers Entered:{NUMBER_COUNT}")
     print(f" Total of numbers: {NUMBER_TOTAL}")
-    print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
-    print(f" Smallest number entered: {SMALLEST_NUMBER}")
+    if NUMBER_COUNT != 0:
+        print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
+    else:
+        print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
     input("\npress Enter to continue...")
