@@ -1,5 +1,6 @@
 """Fun With Numbers By Ben Thurmer"""
 #Ben Thurmer
+# credit to nick dingle for the original fun with numbers
 import os
 import random
 NUMBER_COUNT = 0
@@ -20,6 +21,7 @@ def main():
         print(" (B) Plot numbers")
         print(" (C) Check overall stats")
         print(" (D) Guess a number game")
+        print(" (E) Calculator")
         print("\n (X)  Save and exit")
         choice = input("\n Choice:") .upper()
 
@@ -31,6 +33,8 @@ def main():
             stats()
         elif choice =="D":
             number_guessing_game()
+        elif choice == "E":
+            calculator()
         elif choice == "X":
             saves()
             exit_flag = True
@@ -135,10 +139,11 @@ def stats():
     if NUMBER_COUNT != 0:
         print(f" Average of numbers: {NUMBER_TOTAL/NUMBER_COUNT}")
     else:
-        print(f" Smallest number entered: {SMALLEST_NUMBER}")
+        print(f" Average of numbers: {NUMBER_TOTAL-NUMBER_COUNT}")
+    print(f" Smallest number entered: {SMALLEST_NUMBER}")
     print(f" Largest number entered: {LARGEST_NUMBER}")
     print(f" Coordinated Plotted: {PLOT_COUNT}")
-    input("\npress Enter to continue...")
+    input("\n Press Enter to continue...")
 
 def number_guessing_game():
     """A simple number guessing game."""
@@ -162,6 +167,53 @@ def number_guessing_game():
             print(f"Congratulations! You guessed the number {secret_number} in {attempts} attempts!")
             input("Press Enter To Continue")
             break
+
+def calculator():
+    """basic calculator program"""
+    clear()
+    operation = input("""
+    Please enter the operation you wish to use                
+    + for addition
+    - for subtractiom
+    * for multiplication
+    / for division              
+    """)
+
+    number_1 = int(input("Enter Your First Number "))
+    number_2 = int(input("Enter Your Second Number "))
+
+    #addition
+    if operation == "+":
+        print("{} + {}".format(number_1, number_2))
+        print(number_1 + number_2)
+
+    #subtraction
+    elif operation == "-":
+        print("{} + {}".format(number_1, number_2))
+        print(number_1 - number_2)
+
+    #Multiplication
+    elif operation == "*":
+        print("{} + {}".format(number_1, number_2))
+        print(number_1 * number_2)
+
+    #division
+    elif operation == "/":
+        print("{} + {}".format(number_1, number_2))
+        print(number_1 / number_2)
+
+    else:
+        print("you have not entered a valid operation")
+
+    #asks the user if they want to calculate another number
+    calc_again = input("""
+    Do you want to calculate another number?
+    Please Type Y For Yes or N For No
+    """).strip().lower()
+
+    if calc_again == "y":
+        calculator()
+
 
 def clear():
     """clears the screen"""
