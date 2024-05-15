@@ -2,6 +2,7 @@
 #Ben Thurmer
 # credit to nick dingle for the original fun with numbers
 import os
+import time
 import random
 NUMBER_COUNT = 0
 NUMBER_TOTAL = 0
@@ -10,7 +11,8 @@ LARGEST_NUMBER = 0
 PLOT_COUNT = 0
 
 def main():
-    """what the user first sees on the landing page""" 
+    """what the user first sees on the landing page"""
+    intro_screen()
     load()
     exit_flag = False
     while not exit_flag:
@@ -47,7 +49,7 @@ def numberfeatures():
     number = int(input("Please enter a WHOLE number to be checked over: "))
     clear()
     global NUMBER_COUNT , NUMBER_TOTAL , SMALLEST_NUMBER , LARGEST_NUMBER
-    print(f"The features of {number} are...")
+    print(f" The features of {number} are...")
 
         #Determines if number is positive or negative
     if  number > 0:
@@ -77,7 +79,7 @@ def numberfeatures():
     else:
         print("\n Your Number Is not a prime number")
 
-    input("\npress Enter to continue...")
+    input("\n Press Enter to continue...")
 
     #updates global variables
     if NUMBER_COUNT == 0:
@@ -205,7 +207,7 @@ def calculator():
     else:
         print("you have not entered a valid operation")
 
-    #asks the user if they want to calculate another number
+    #asks the user if they want to cal ulate another number
     calc_again = input("""
     Do you want to calculate another number?
     Please Type Y For Yes or N For No
@@ -214,6 +216,22 @@ def calculator():
     if calc_again == "y":
         calculator()
 
+def intro_screen():
+    """intro screen that shows a bit of info aboout ther program"""
+    intro_text = ("""
+    Welcome To Fun With Numbers!
+    This program offers various number-related functionalities.
+    Let's explore numbers together!
+                  
+    """)
+    clear()
+    # Display scrolling intro text
+    for char in intro_text:
+        print(char, end='', flush=True)
+        time.sleep(0.012)  #how fast the text moves
+    input("\n    Press Enter to continue...")
+
+# Other functions and main remain the same...
 
 def clear():
     """clears the screen"""
