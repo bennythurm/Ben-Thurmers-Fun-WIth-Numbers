@@ -220,8 +220,8 @@ def intro_screen():
     """intro screen that shows a bit of info aboout ther program"""
     intro_text = ("""
     Welcome To Fun With Numbers!
-    This program offers various number-related functionalities.
-    Let's explore numbers together!
+    This program offers useful features such as Number Stats, Graphing And More.
+    And a fun game!
                   
     """)
     clear()
