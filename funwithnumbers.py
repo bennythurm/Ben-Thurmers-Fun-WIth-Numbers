@@ -221,7 +221,7 @@ def intro_screen():
     intro_text = ("""
     Welcome To Fun With Numbers!
     This program offers useful features such as Number Stats, Graphing And More.
-    And a fun game!
+    With a fun game!
                   
     """)
     clear()
