@@ -108,7 +108,7 @@ def plotter():
             y_axis = int(input("Please enter a y axis to plot on the map ( 1 - 12): "))
 
             #makes sure values that are entered are integers and are valid
-            input("\n press enter to continue")
+            input("\nPress enter to continue")
             if 1 <= x_axis <= 38 and 1 <= y_axis <= 12:
                 table[y_axis - 1][x_axis - 1] = "X"
                 #updates the plot count for each time it is used
@@ -125,7 +125,7 @@ def plotter():
 
 def print_table(table):
     """prints a table"""
-    print("\n                                                       x axis")
+    print("\n                                                       X axis")
     print("    1  2  3  4  5  6  7  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ")
     print("    --------------------------------------------------------------------------------------------------------------")
     for index, row in enumerate(table, start = 1):
